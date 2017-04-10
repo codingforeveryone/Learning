@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Roman Number Convertor</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <script>
+            function convertToRoman(num) {
+                var romanBreaks = [ 'M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I' ];
+                var numBreaks = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+                var numToConvert = num;
+                var romanNum = '';
+                if (num > 0 && num < 4000){
+                    for (var i = 0; i < numBreaks.length; i++) {
+                        while (numBreaks[i] <= numToConvert) {
+                            romanNum += romanBreaks[i];
+                            numToConvert -= numBreaks[i];
+                            console.log('Index ' + i + '('+ romanBreaks[i] +') = ' + numBreaks[i] +', '+ numToConvert + ' left');
+                        }
+                    }
+                    console.log(num + ' = ' + romanNum);
+                } else
+                    console.log('please enter a number btw 1 and 3999');
+            }
+            convertToRoman(788);
+        </script>
+    </body>
+</html>
